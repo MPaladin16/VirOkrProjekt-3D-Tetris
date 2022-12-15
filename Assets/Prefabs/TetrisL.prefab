@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8066409972666910422}
   - component: {fileID: 2909144582478879832}
   - component: {fileID: 1669588255015434087}
+  - component: {fileID: 8087126014231610352}
   m_Layer: 0
   m_Name: TetrisL
   m_TagString: Untagged
@@ -177,6 +178,21 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &8087126014231610352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066409972666910423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94b97afc616d2d42aa028c12767fc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubesPerAxis: 3
+  radius: 0.5
+  force: 15
 --- !u!1001 &8066409971376008745
 PrefabInstance:
   m_ObjectHideFlags: 0
