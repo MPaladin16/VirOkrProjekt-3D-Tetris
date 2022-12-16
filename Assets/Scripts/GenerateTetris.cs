@@ -33,8 +33,7 @@ public class GenerateTetris : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        DestroyRedundantObjects();
     }
 
     void SpawnTertris()
@@ -64,6 +63,12 @@ public class GenerateTetris : MonoBehaviour
         }
 
         Instantiate(tetrisPieces[index], this.gameObject.transform.position, this.gameObject.transform.rotation);
+    }
+
+    private void DestroyRedundantObjects()
+    {
+        GameObject go = GameObject.Find("Cube");
+        Destroy(go);
     }
 
 }
