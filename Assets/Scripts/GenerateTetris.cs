@@ -6,12 +6,6 @@ using UnityEngine.XR.Interaction.Toolkit.Filtering;
 
 public class GenerateTetris : MonoBehaviour
 {
-    [Tooltip("Spawn tetris piece every x seconds")]
-    [SerializeField] float seconds;
-
-    //ako zelimo vise spawnera koji rade periodicki
-    [Tooltip("Start spawning pieces after startOffset seconds")]
-    [SerializeField] float startOffset;
 
     public GameObject[] tetrisPieces;
 
@@ -68,9 +62,14 @@ public class GenerateTetris : MonoBehaviour
         Destroy(go);
     }
 
-    public void startSpawning()
+    public void startSpawning(float startOffset, float seconds)
     {
         InvokeRepeating("SpawnTertris", startOffset, seconds);
+    }
+
+    public void stopSpawning()
+    {
+        CancelInvoke("SpawnTertris");
     }
 
 }
