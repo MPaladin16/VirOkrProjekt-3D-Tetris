@@ -22,12 +22,9 @@ public class GenerateTetris : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         //initial
         lastSpawned.index = -1;
         lastSpawned.reps = -1;
-
-        InvokeRepeating("SpawnTertris", startOffset, seconds);
     }
 
     // Update is called once per frame
@@ -69,6 +66,11 @@ public class GenerateTetris : MonoBehaviour
     {
         GameObject go = GameObject.Find("Cube");
         Destroy(go);
+    }
+
+    public void startSpawning()
+    {
+        InvokeRepeating("SpawnTertris", startOffset, seconds);
     }
 
 }
