@@ -6,7 +6,9 @@ public class CubeScript : MonoBehaviour
     private GameObject _collidedObject;
     public void SetCubePositions()
     {
-        //pivot mora bit sredina da ovo radi
+        //zove se prilikom otpustanja Objekta na svu djecu objekta, odnosno 1 skriptu za svaku kockicu(njih 4)
+        //pivot mora bit sredina da ovo radi?
+        this.gameObject.GetComponent<Rigidbody>().useGravity = false;
         this.gameObject.transform.position = _collidedObject.transform.position;
         this.gameObject.transform.rotation = _collidedObject.transform.rotation;
         _collidedObject.GetComponent<ColliderScript>().SetFull(this.gameObject);
@@ -14,7 +16,7 @@ public class CubeScript : MonoBehaviour
     public void OnTriggerEnter(Collider other)
 
     {
-        //bitno da i ruka i kocka imaju collidere tako da se trigger zove sam s placeholderima koji su triggeri
+        //Mozda treba checkat layer da se dobije kad kocka ima onTriggerEnter, a ne slucajno ruka
         _collidedObject = other.gameObject;
     }
 

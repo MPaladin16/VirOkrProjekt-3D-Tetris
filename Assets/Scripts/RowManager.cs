@@ -59,6 +59,7 @@ public class RowManager : MonoBehaviour
                 rowFull--;
             }
             ind3 = 0;
+            //tu se dodaje bod na screen za unsiten cijeli red
         }
 
         if (ind2 == 16)
