@@ -9,6 +9,9 @@ public class TetrisPieceScript : MonoBehaviour
     public float radius = 0.5f;
     public float force = 15f;
 
+    // drag details
+    private bool dragChanged = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,5 +72,14 @@ public class TetrisPieceScript : MonoBehaviour
         Destroy(miniCube, 3.5f);
     }
 
+    public void changeDrag()
+    {
+        if (!dragChanged)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.drag = 0;
+            dragChanged = true;
+        }
+    }
 
 }

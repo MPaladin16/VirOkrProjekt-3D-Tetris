@@ -30,6 +30,7 @@ public class ButtonScript : MonoBehaviour
             button.transform.localPosition = new Vector3(0, 0.003f, 0);
             presser = other.gameObject;
             isPressed = true;   
+            onRelease.Invoke();
         }
     }
 
