@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2c822825c828f0d44b409d5505fe70c4, type: 2}
     - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_Name
-      value: Cube
+      value: TetrisCube
       objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder
@@ -284,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2c822825c828f0d44b409d5505fe70c4, type: 2}
     - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_Name
-      value: Cube (2)
+      value: TetrisCube 3
       objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder
@@ -362,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2c822825c828f0d44b409d5505fe70c4, type: 2}
     - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_Name
-      value: Cube (1)
+      value: TetrisCube 2
       objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder
@@ -440,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2c822825c828f0d44b409d5505fe70c4, type: 2}
     - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_Name
-      value: Cube (3)
+      value: TetrisCube 4
       objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder

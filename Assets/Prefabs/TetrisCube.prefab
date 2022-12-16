@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2554393290145723939}
   - component: {fileID: -395291726569784048}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: TetrisCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
