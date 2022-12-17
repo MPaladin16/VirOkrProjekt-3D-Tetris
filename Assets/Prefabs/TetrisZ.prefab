@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5651907896507073166}
   - component: {fileID: 8776261074196014234}
   - component: {fileID: 3766979713952830932}
+  - component: {fileID: 8856000373444048950}
   m_Layer: 0
   m_Name: TetrisZ
   m_TagString: Untagged
@@ -102,6 +103,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3766979713952830932}
         m_TargetAssemblyTypeName: TetrisPieceScript, Assembly-CSharp
         m_MethodName: changeDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8856000373444048950}
+        m_TargetAssemblyTypeName: CubePlaceSetter, Assembly-CSharp
+        m_MethodName: setAllChildrenCubePosition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -205,6 +218,18 @@ MonoBehaviour:
   cubesPerAxis: 3
   radius: 0.5
   force: 15
+--- !u!114 &8856000373444048950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305215521814540916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a06d348149432140976ad8d0de6bdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8305215522131079725
 PrefabInstance:
   m_ObjectHideFlags: 0
