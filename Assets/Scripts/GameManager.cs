@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             float min = Mathf.FloorToInt(currentTime / 60);
-            timeText.text = "Time: " + string.Format("{0:00}:{1:00}", min, currentTime);
+            float sec = Mathf.FloorToInt(currentTime % 60);
+            timeText.text = "Time: " + string.Format("{0:00}:{1:00}", min, sec);
 
             scoreText.text = "Score: " + score;
             lvlText.text = "Level: " + level;
