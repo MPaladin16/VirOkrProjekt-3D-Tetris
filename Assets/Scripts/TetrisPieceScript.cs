@@ -77,7 +77,6 @@ public class TetrisPieceScript : MonoBehaviour
 
     public void changeDrag()
     {
-        Debug.Log("In here!");
         if (!dragChanged)
         {
             Rigidbody rb = GetComponent<Rigidbody>();
