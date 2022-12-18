@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CubePlaceSetter : MonoBehaviour
 {
-    // not sure if it works right
     List<ColliderScript> activeColliders = new List<ColliderScript>();
 
     [SerializeField] public bool[] shapeRow1 = new bool[2];
@@ -46,11 +45,6 @@ public class CubePlaceSetter : MonoBehaviour
 
         lastShape = correctShape();
         if (lastShape.Count == 4) {
-            // Debug.Log("Shape: ");
-            // foreach (ColliderScript s in shape) {
-            //     Debug.Log(s);
-            // }
-
             foreach (ColliderScript cube in lastShape) {
                 cube.GetOutlineRenderer().enabled = true;
             }
@@ -60,6 +54,7 @@ public class CubePlaceSetter : MonoBehaviour
     private List<ColliderScript> correctShape() {
         List<ColliderScript> shape = new List<ColliderScript>();
 
+        // this is commented if the current idea won't work very well
         // List<string> shapeBool = new List<string>();
         // // 2 = number of columns for shape
         // for (int i = 0; i < 2; i++) {
@@ -95,11 +90,6 @@ public class CubePlaceSetter : MonoBehaviour
         // }
 
         if (activeColliders.Count == 4) {
-            Debug.Log("Active colliders: ");
-            foreach (ColliderScript s in activeColliders) {
-                Debug.Log(s);
-            }
-
             List<ColliderScript> activeCollidersCopy = new List<ColliderScript>(activeColliders);
             bool touching = false;
             // this only works because each tetris piece has 4 cubes
@@ -107,6 +97,7 @@ public class CubePlaceSetter : MonoBehaviour
 
             foreach (ColliderScript collider1 in activeCollidersCopy) {
                 touching = false;
+
                 foreach (ColliderScript collider2 in activeCollidersCopy) {
                     if (collider1 == collider2) {
                         continue;
@@ -125,12 +116,9 @@ public class CubePlaceSetter : MonoBehaviour
                                 break;
                             }
 
-                            Debug.Log("Touching: " + collider1 + " and " + collider2);
-                            Debug.Log("Difference row: " + differenceRow + ", Difference I: " + differenceI + ", DifferenceJ: " + differenceJ);
                             touching = true;
                             // TODO: Could add collider2 as well
                             shape.Add(collider1);
-                            // break;
                     }
                 }
                 if (!touching) {
@@ -146,7 +134,6 @@ public class CubePlaceSetter : MonoBehaviour
         return shape;
     }
 
-    // Start is called before the first frame update
     public void setAllChildrenCubePosition() {
         foreach (var c in GetComponentsInChildren<CubeScript>())
         {
@@ -155,14 +142,28 @@ public class CubePlaceSetter : MonoBehaviour
     }
 
     public void PutChildrenInNetwork() {
+        if (lastShape.Count == 4) {
+            CubeScript[] tetrisCubes = GetComponentsInChildren<CubeScript>();
 
+            for (int i = 0; i < 4; i++) {
+                ColliderScript colliderCube = lastShape[i];
+                CubeScript tetrisCube = tetrisCubes[i];
+                RowManager.PlaceCubeInNetwork(colliderCube, tetrisCube, this.gameObject);
+            }
+            
+            foreach (ColliderScript cube in lastShape) {
+                cube.GetOutlineRenderer().enabled = false;
+            }
+            Destroy(this.gameObject);
+        }
     }
     
-    void OnTriggerEnter(Collider other)
-    {
+    // i think the on trigger enter and exit functions don't behave well,
+    // so it sometimes bugs out the placement of tetris shapes in the network
+    void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "BoxHitCollider") {
             ColliderScript collider = other.gameObject.GetComponent<ColliderScript>();
-            if (!activeColliders.Contains(collider)) {
+            if (!collider.GetFull() && !activeColliders.Contains(collider)) {
                 activeColliders.Add(collider);
             }
         }

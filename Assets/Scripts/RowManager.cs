@@ -69,4 +69,13 @@ public class RowManager : MonoBehaviour
             rowFull = 0;
         }
     }
+
+    public static void PlaceCubeInNetwork(ColliderScript colliderCube, CubeScript tetrisCube, GameObject tetrisShape) {
+        GameObject clone = Instantiate(tetrisCube.gameObject, colliderCube.gameObject.transform.position, colliderCube.gameObject.transform.rotation);
+        clone.transform.localScale = tetrisShape.transform.localScale;
+        colliderCube.SetFull(clone);
+    }
+
+    // TODO: Falling blocks (maybe add an id to CubeScript, and sort
+    // shapes here with a map/dictionary?), clearing rows
 }
