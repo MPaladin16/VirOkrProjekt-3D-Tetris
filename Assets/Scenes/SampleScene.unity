@@ -2938,7 +2938,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &755883377
 BoxCollider:
@@ -3169,7 +3169,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_YDrive:
     serializedVersion: 3
-    positionSpring: 50
+    positionSpring: 10
     positionDamper: 10
     maximumForce: 3.4028233e+38
   m_ZDrive:
@@ -3220,7 +3220,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &809154457
 BoxCollider:
@@ -5340,39 +5340,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3715067016147900868, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 682864545}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticHoverEnterDuration
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticHoverEnterIntensity
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticSelectEnterDuration
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_PlayHapticsOnHoverEntered
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticSelectEnterIntensity
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_PlayHapticsOnSelectEntered
       value: 1
       objectReference: {fileID: 0}
@@ -5592,31 +5592,31 @@ PrefabInstance:
       propertyPath: onTeleportActivate.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: set_enabled
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 682864545}
-    - target: {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticHoverEnterDuration
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticHoverEnterIntensity
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticSelectEnterDuration
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_PlayHapticsOnHoverEntered
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_HapticSelectEnterIntensity
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_PlayHapticsOnSelectEntered
       value: 1
       objectReference: {fileID: 0}
@@ -5624,11 +5624,7 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3715067016147900869, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
-    - {fileID: 3715067017876445969, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
-    - {fileID: 3715067016147900868, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
-    - {fileID: 3715067017876445968, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57639d3e85176f248b361e0a9488b00e, type: 3}
 --- !u!1001 &1449450636
 PrefabInstance:
