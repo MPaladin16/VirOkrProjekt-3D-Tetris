@@ -102,6 +102,8 @@ public class CubePlaceSetter : MonoBehaviour
 
             List<ColliderScript> activeCollidersCopy = new List<ColliderScript>(activeColliders);
             bool touching = false;
+            // this only works because each tetris piece has 4 cubes
+            bool touchingTwo = false;
 
             foreach (ColliderScript collider1 in activeCollidersCopy) {
                 touching = false;
@@ -118,12 +120,17 @@ public class CubePlaceSetter : MonoBehaviour
                         !(differenceI == 1 && differenceJ == 1) &&
                         !(differenceI == 1 && differenceRow == 1) &&
                         !(differenceJ == 1 && differenceRow == 1)) {
+                            if (touching) {
+                                touchingTwo = true;
+                                break;
+                            }
+
                             Debug.Log("Touching: " + collider1 + " and " + collider2);
                             Debug.Log("Difference row: " + differenceRow + ", Difference I: " + differenceI + ", DifferenceJ: " + differenceJ);
                             touching = true;
                             // TODO: Could add collider2 as well
                             shape.Add(collider1);
-                            break;
+                            // break;
                     }
                 }
                 if (!touching) {
@@ -131,7 +138,7 @@ public class CubePlaceSetter : MonoBehaviour
                 }
             }
 
-            if (!touching) {
+            if (!touching || !touchingTwo) {
                 return new List<ColliderScript>();
             }
         }
