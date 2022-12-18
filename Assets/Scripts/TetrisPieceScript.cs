@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TetrisPieceScript : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class TetrisPieceScript : MonoBehaviour
         //sudar s podom -> eksplozija
         if (collision.gameObject.layer == 3)
         {
+            //XRGrabInteractable xrGrabInteractable = GetComponent<XRGrabInteractable>();
+            //xrGrabInteractable.useDynamicAttach = false;
             force *= collision.relativeVelocity.y;
             Invoke("Explode", 0);
         }

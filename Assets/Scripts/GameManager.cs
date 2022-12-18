@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("Start spawning pieces after startOffset seconds")]
     [SerializeField] float startOffset;
 
+    public static Action<bool> onGameStarted;
+    public static Action<bool> onGameStopped;
+
     public GameObject[] spawners;
 
     public TextMeshProUGUI timeText;
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
         levelTresholds[3] = lvl_5;
 
         //called by button, uncomment for testing
-        StartGame();
+        //StartGame();
     }
 
     // Update is called once per frame
@@ -83,6 +86,7 @@ public class GameManager : MonoBehaviour
 
         //pokreni timer
         start = true;
+        onGameStarted?.Invoke(start);
     }
 
     //poziva se kada se brise red u tetris mrezi
@@ -114,5 +118,14 @@ public class GameManager : MonoBehaviour
             spawners[0].GetComponent<GenerateTetris>().startSpawning(startOffset, seconds);
             spawners[1].GetComponent<GenerateTetris>().startSpawning(seconds, seconds);
         }
+    }
+
+    public void StopGame()
+    {
+        start = false;
+        onGameStopped?.Invoke(start);
+
+        spawners[0].GetComponent<GenerateTetris>().stopSpawning();
+        spawners[1].GetComponent<GenerateTetris>().stopSpawning();
     }
 }

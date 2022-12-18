@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8066409972666910422}
   - component: {fileID: 2909144582478879832}
-  - component: {fileID: 1669588255015434087}
+  - component: {fileID: -2959717058943924208}
   - component: {fileID: 8087126014231610352}
   - component: {fileID: 3118767851697473991}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TetrisL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,8 +53,8 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!114 &1669588255015434087
+  m_CollisionDetection: 3
+--- !u!114 &-2959717058943924208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 1
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -99,31 +99,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8087126014231610352}
-        m_TargetAssemblyTypeName: TetrisPieceScript, Assembly-CSharp
-        m_MethodName: changeDrag
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3118767851697473991}
-        m_TargetAssemblyTypeName: CubePlaceSetter, Assembly-CSharp
-        m_MethodName: setAllChildrenCubePosition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -171,11 +147,11 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 1
+  m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
   m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 1
+  m_SmoothRotation: 0
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
   m_ThrowOnDetach: 1
@@ -244,6 +220,10 @@ PrefabInstance:
     - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_Name
       value: TetrisCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder
@@ -323,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrisCube 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -401,6 +385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrisCube 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -478,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_Name
       value: TetrisCube 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358335893673655271, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6152103963955013628, guid: ad170b7dfaad99c488bf46b908a5d8d4, type: 3}
       propertyPath: m_RootOrder
