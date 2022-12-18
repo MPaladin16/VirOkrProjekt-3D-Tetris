@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -10,13 +9,15 @@ public class TetrisPieceScript : MonoBehaviour
     public float radius = 0.5f;
     public float force = 15f;
 
+    private Quaternion _startRotation;
+
     // drag details
     private bool dragChanged = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _startRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -31,8 +32,6 @@ public class TetrisPieceScript : MonoBehaviour
         //sudar s podom -> eksplozija
         if (collision.gameObject.layer == 3)
         {
-            //XRGrabInteractable xrGrabInteractable = GetComponent<XRGrabInteractable>();
-            //xrGrabInteractable.useDynamicAttach = false;
             force *= collision.relativeVelocity.y;
             Invoke("Explode", 0);
         }
@@ -45,7 +44,13 @@ public class TetrisPieceScript : MonoBehaviour
             for(int x = 0; x < cubesPerAxis; x++) {
                 for (int y = 0; y < cubesPerAxis; y++) {
                     for (int z = 0; z < cubesPerAxis; z++) {
-                        CreateMiniCube(childCube, new Vector3(x, y, z));
+                        try
+                        {
+                            CreateMiniCube(childCube, new Vector3(x, y, z));
+                        }
+                        catch (MissingComponentException e)
+                        {
+                        }
                     }
                 }
             }
@@ -66,11 +71,14 @@ public class TetrisPieceScript : MonoBehaviour
 
         miniCube.transform.localScale = this.transform.localScale / cubesPerAxis;
 
-        Vector3 firstMiniCubePos = transform.position - transform.localScale / 2 + miniCube.transform.localScale / 2;
+        Vector3 firstMiniCubePos = transform.localPosition - transform.localScale / 2 + miniCube.transform.localScale / 2;
         miniCube.transform.position = firstMiniCubePos + Vector3.Scale(pos, miniCube.transform.localScale);
 
         Rigidbody rb = miniCube.AddComponent<Rigidbody>();
         rb.AddExplosionForce(force, transform.position, radius);
+
+        //XRGrabInteractable xrGrab = miniCube.AddComponent<XRGrabInteractable>();
+        //xrGrab.useDynamicAttach = true;
 
         Destroy(miniCube, 3.5f);
     }
