@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -1021976977178339165}
   - component: {fileID: 3766979713952830932}
   - component: {fileID: 8856000373444048950}
+  - component: {fileID: 4275252317793867221}
+  - component: {fileID: 5402414894777464944}
   m_Layer: 6
   m_Name: TetrisZ
   m_TagString: Untagged
@@ -103,6 +105,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3766979713952830932}
         m_TargetAssemblyTypeName: TetrisPieceScript, Assembly-CSharp
         m_MethodName: changeDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8856000373444048950}
+        m_TargetAssemblyTypeName: CubePlaceSetter, Assembly-CSharp
+        m_MethodName: PutChildrenInNetwork
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -218,6 +232,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a06d348149432140976ad8d0de6bdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shapeRow1: 0100
+  shapeRow2: 0101
+  shapeRow3: 0001
+  shapeRow4: 0000
+--- !u!65 &4275252317793867221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305215521814540916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.9937469, z: 1}
+  m_Center: {x: 0, y: 1.0006027, z: 0}
+--- !u!65 &5402414894777464944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305215521814540916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0101931, y: 2.0086365, z: 1}
+  m_Center: {x: 0.9953832, y: 1.9960651, z: 0}
 --- !u!1001 &8305215522131079725
 PrefabInstance:
   m_ObjectHideFlags: 0

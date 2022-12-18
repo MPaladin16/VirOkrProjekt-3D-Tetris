@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5694809583342324870}
   - component: {fileID: 7226328847777693245}
   - component: {fileID: 1223769186392239736}
+  - component: {fileID: 6905859066879346386}
   m_Layer: 6
   m_Name: TetrisI
   m_TagString: Untagged
@@ -103,6 +104,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7226328847777693245}
         m_TargetAssemblyTypeName: TetrisPieceScript, Assembly-CSharp
         m_MethodName: changeDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1223769186392239736}
+        m_TargetAssemblyTypeName: CubePlaceSetter, Assembly-CSharp
+        m_MethodName: PutChildrenInNetwork
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -218,6 +231,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a06d348149432140976ad8d0de6bdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shapeRow1: 0100
+  shapeRow2: 0100
+  shapeRow3: 0100
+  shapeRow4: 0100
+--- !u!65 &6905859066879346386
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370208545276453221}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4.000208, z: 1}
+  m_Center: {x: 0, y: 2.0030417, z: 0}
 --- !u!1001 &419817354308453314
 PrefabInstance:
   m_ObjectHideFlags: 0
