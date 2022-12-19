@@ -65,7 +65,7 @@ public class RowManager : MonoBehaviour
 
     public void ClearRows()
     {
-        for (ind1 = 0; ind1 < 10; ind1++) {
+        for (ind1 = 9; ind1 >= 0; ind1--) {
             bool rowFull = true;
             
             for (ind2 = 0; ind2 < 16; ind2++) {
@@ -84,7 +84,29 @@ public class RowManager : MonoBehaviour
                 onRowCleared?.Invoke();
 
                 // call function for putting all other rows 1 row down
+                LowerRows(ind1);
+            }
+        }
+    }
 
+    private void LowerRows(int clearedRow) {
+        for (int i = clearedRow + 1; i < 10; i++) {
+            for (int j = 0; j < 16; j++) {
+                Debug.Log("Coordinates: i: " + i + ", j: " + j + ", Fullness: " + markerList[i][j]);
+                if (markerList[i][j]) {
+                    markerList[i - 1][j] = true;
+                    ColliderScript fallingColliderCube = ColliderScriptList[i * 16 + j];
+                    ColliderScript lowerColliderCube = ColliderScriptList[(i - 1) * 16 + j];
+                    GameObject cube = fallingColliderCube.GetParentCube();
+                    cube.transform.position = lowerColliderCube.gameObject.transform.position;
+                    cube.transform.rotation = lowerColliderCube.gameObject.transform.rotation;
+
+                    fallingColliderCube.RemoveParentCube();
+                    lowerColliderCube.SetFull(cube);
+
+                    markerList[i][j] = false;
+                    fallingColliderCube.SetEmpty();
+                }
             }
         }
     }

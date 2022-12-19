@@ -41,6 +41,7 @@ public class ColliderScript : MonoBehaviour
         full = true;
         _parentCube = go;
     }
+
     public void SetEmpty()
     {
         full = false;
@@ -52,5 +53,13 @@ public class ColliderScript : MonoBehaviour
     public bool GetFull()
     {
         return full;
+    }
+
+    public GameObject GetParentCube() {
+        return _parentCube;
+    }
+
+    public void RemoveParentCube() {
+        _parentCube = null;
     }
 }
