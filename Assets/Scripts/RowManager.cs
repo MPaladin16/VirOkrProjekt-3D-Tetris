@@ -66,7 +66,6 @@ public class RowManager : MonoBehaviour
     public void ClearRows()
     {
         for (ind1 = 0; ind1 < 10; ind1++) {
-            Debug.Log("Row: " + ind1);
             bool rowFull = true;
             
             for (ind2 = 0; ind2 < 16; ind2++) {
@@ -77,7 +76,6 @@ public class RowManager : MonoBehaviour
             }
 
             if (rowFull) {
-                Debug.Log("Full row: " + ind1);
                 for (int i = 0; i < 16; i++) {
                     ColliderScriptList[ind1 * 16 + i].SetEmpty();
                 }
