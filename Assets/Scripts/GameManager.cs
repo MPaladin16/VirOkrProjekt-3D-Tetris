@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         levelTresholds[3] = lvl_5;
 
         //called by button, uncomment for testing
-        //StartGame();
+        StartGame();
     }
 
     // Update is called once per frame
@@ -148,6 +148,16 @@ public class GameManager : MonoBehaviour
 
         spawners[0].GetComponent<GenerateTetris>().stopSpawning();
         spawners[1].GetComponent<GenerateTetris>().stopSpawning();
+
+        GameObject[] tetrisPieces = GameObject.FindGameObjectsWithTag("Tetris");
+
+        foreach(GameObject tetris in tetrisPieces)
+        {
+            if (tetris != null)
+            {
+                tetris.GetComponent<TetrisPieceScript>().Explode();
+            }
+        }
     }
 
     public void DroppedOrDespawned()
