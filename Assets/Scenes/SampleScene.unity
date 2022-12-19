@@ -2605,6 +2605,7 @@ MonoBehaviour:
   lvl_5: 2500
   seconds: 15
   startOffset: 7.5
+  rowManager: {fileID: 1604609877}
   spawners:
   - {fileID: 1182938940}
   - {fileID: 1675032265}
@@ -6422,6 +6423,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985af3ad2816e8040b493c13a83b1eee, type: 3}
+--- !u!114 &1604609877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1558632189679519318, guid: 1d2812f06e78ee84ba9bfa69ba52383c, type: 3}
+  m_PrefabInstance: {fileID: 1558632188470603981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8177a4d77ca4842429be384e2c02091a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1609740932
 PrefabInstance:
   m_ObjectHideFlags: 0

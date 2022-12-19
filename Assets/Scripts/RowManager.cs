@@ -82,6 +82,9 @@ public class RowManager : MonoBehaviour
 
                 // tu se dodaje bod na screen za unisten cijeli red
                 onRowCleared?.Invoke();
+
+                // call function for putting all other rows 1 row down
+
             }
         }
     }
@@ -109,7 +112,4 @@ public class RowManager : MonoBehaviour
         clone.transform.localScale = tetrisShape.transform.localScale;
         colliderCube.SetFull(clone);
     }
-
-    // TODO: Falling blocks (maybe add an id to CubeScript, and sort
-    // shapes here with a map/dictionary?), clearing rows
 }
