@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         levelTresholds[3] = lvl_5;
 
         //called by button, uncomment for testing
-        StartGame();
+        //StartGame();
     }
 
     // Update is called once per frame
