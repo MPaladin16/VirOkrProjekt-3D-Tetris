@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
     {
         start = false;
         onGameStopped?.Invoke(start);
+        onGameStoppedClearBox?.Invoke();
 
         spawners[0].GetComponent<GenerateTetris>().stopSpawning();
         spawners[1].GetComponent<GenerateTetris>().stopSpawning();
