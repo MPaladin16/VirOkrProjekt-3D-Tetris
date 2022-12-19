@@ -86,7 +86,7 @@ public class RowManager : MonoBehaviour
         }
     }
 
-    private void ClearBox()
+    public void ClearBox()
     {
         ind1 = 0;
         ind2 = 0;
