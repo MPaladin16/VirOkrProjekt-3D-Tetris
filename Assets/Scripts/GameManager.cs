@@ -7,7 +7,6 @@ using UnityEngine.InputSystem.Controls;
 
 public class GameManager : MonoBehaviour
 {
-
     [Header("Score needed for each level")]
     public int lvl_2 = 300;
     public int lvl_3 = 800;
@@ -23,12 +22,15 @@ public class GameManager : MonoBehaviour
 
     public static Action<bool> onGameStarted;
     public static Action<bool> onGameStopped;
+    public static Action onGameStoppedClearBox;
 
     public GameObject[] spawners;
 
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI lvlText;
+
+    private const int AMOUNT = 100;
 
     private float currentTime;
     private bool start;
@@ -39,6 +41,16 @@ public class GameManager : MonoBehaviour
     private int nextLvl;
 
     private int[] levelTresholds;
+
+    private void OnEnable()
+    {
+        RowManager.onRowCleared += UpdateScore;
+    }
+
+    private void OnDisable()
+    {
+        RowManager.onRowCleared -= UpdateScore;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -90,8 +102,9 @@ public class GameManager : MonoBehaviour
     }
 
     //poziva se kada se brise red u tetris mrezi
-    public void UpdateScore(int amount = 100)
+    public void UpdateScore()
     {
+        int amount = AMOUNT;
         //lvl multiplier
         amount *= level;
         score += amount;

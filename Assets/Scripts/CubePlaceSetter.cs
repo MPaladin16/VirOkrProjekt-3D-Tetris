@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class CubePlaceSetter : MonoBehaviour
     [SerializeField] public bool[] shapeRow2 = new bool[2];
     [SerializeField] public bool[] shapeRow3 = new bool[2];
     [SerializeField] public bool[] shapeRow4 = new bool[2];
+
+    public static Action onShapeAdded;
 
     private int boolCount;
     private List<ColliderScript> lastShape = new List<ColliderScript>();
@@ -155,6 +158,8 @@ public class CubePlaceSetter : MonoBehaviour
                 cube.GetOutlineRenderer().enabled = false;
             }
             Destroy(this.gameObject);
+
+            onShapeAdded?.Invoke();
         }
     }
     

@@ -48,7 +48,7 @@ public class TetrisPieceScript : MonoBehaviour
                         {
                             CreateMiniCube(childCube, new Vector3(x, y, z));
                         }
-                        catch (MissingComponentException e)
+                        catch (Exception e)
                         {
                         }
                     }
@@ -76,9 +76,6 @@ public class TetrisPieceScript : MonoBehaviour
 
         Rigidbody rb = miniCube.AddComponent<Rigidbody>();
         rb.AddExplosionForce(force, transform.position, radius);
-
-        //XRGrabInteractable xrGrab = miniCube.AddComponent<XRGrabInteractable>();
-        //xrGrab.useDynamicAttach = true;
 
         Destroy(miniCube, 3.5f);
     }
