@@ -15,6 +15,10 @@ public class RowManager : MonoBehaviour
     private int ind2 = 0;
     private int ind3 = 0;
 
+    public bool CheckMark(int rowIndex, int i, int j) {
+        return markerList[rowIndex][i * 4 + j];
+    }
+
     private void OnEnable()
     {
         CubePlaceSetter.onShapeAdded += UpdateStatus;

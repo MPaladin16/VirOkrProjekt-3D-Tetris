@@ -235,6 +235,7 @@ MonoBehaviour:
   shapeRow2: 0101
   shapeRow3: 0000
   shapeRow4: 0000
+  rowManager: {fileID: 1558632189679519318, guid: 1d2812f06e78ee84ba9bfa69ba52383c, type: 3}
 --- !u!65 &3631187143276150727
 BoxCollider:
   m_ObjectHideFlags: 0

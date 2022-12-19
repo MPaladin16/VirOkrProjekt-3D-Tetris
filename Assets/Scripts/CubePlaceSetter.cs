@@ -17,6 +17,8 @@ public class CubePlaceSetter : MonoBehaviour
     private int boolCount;
     private List<ColliderScript> lastShape = new List<ColliderScript>();
 
+    private RowManager rowManager;
+
     void Start() {
         int boolCount = 0;
         foreach (bool b in shapeRow1) {
@@ -39,6 +41,8 @@ public class CubePlaceSetter : MonoBehaviour
                 boolCount++;
             }
         }
+
+        rowManager = GameObject.Find("RowManager").GetComponent<RowManager>();
     }
 
     void Update() {
@@ -97,18 +101,22 @@ public class CubePlaceSetter : MonoBehaviour
             bool touching = false;
             // this only works because each tetris piece has 4 cubes
             bool touchingTwo = false;
+            bool solidGround = false;
 
             foreach (ColliderScript collider1 in activeCollidersCopy) {
                 touching = false;
+                int rowIndex = collider1.GetRowIndex();
+                int i = collider1.GetI();
+                int j = collider1.GetJ();
 
                 foreach (ColliderScript collider2 in activeCollidersCopy) {
                     if (collider1 == collider2) {
                         continue;
                     }
 
-                    int differenceRow = Mathf.Abs(collider1.GetRowIndex() - collider2.GetRowIndex());
-                    int differenceI = Mathf.Abs(collider1.GetI() - collider2.GetI());
-                    int differenceJ = Mathf.Abs(collider1.GetJ() - collider2.GetJ());
+                    int differenceRow = Mathf.Abs(rowIndex - collider2.GetRowIndex());
+                    int differenceI = Mathf.Abs(i - collider2.GetI());
+                    int differenceJ = Mathf.Abs(j - collider2.GetJ());
                     if ((differenceI == 1 || differenceJ == 1 || differenceRow == 1) &&
                         differenceI <= 1 && differenceJ <= 1 && differenceRow <= 1 &&
                         !(differenceI == 1 && differenceJ == 1) &&
@@ -127,9 +135,15 @@ public class CubePlaceSetter : MonoBehaviour
                 if (!touching) {
                     break;
                 }
+
+                if (!solidGround &&
+                    (rowIndex == 0 ||
+                    rowManager.CheckMark(rowIndex - 1, i, j))) {
+                    solidGround = true;
+                }
             }
 
-            if (!touching || !touchingTwo) {
+            if (!touching || !touchingTwo || !solidGround) {
                 return new List<ColliderScript>();
             }
         }
