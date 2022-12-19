@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
     [Tooltip("Start spawning pieces after startOffset seconds")]
     [SerializeField] float startOffset;
 
-    [SerializeField] RowManager  rowManager;
-
     public static Action<bool> onGameStarted;
     public static Action<bool> onGameStopped;
     public static Action onGameStoppedClearBox;
@@ -139,10 +137,9 @@ public class GameManager : MonoBehaviour
     {
         start = false;
         onGameStopped?.Invoke(start);
+        onGameStoppedClearBox?.Invoke();
 
         spawners[0].GetComponent<GenerateTetris>().stopSpawning();
         spawners[1].GetComponent<GenerateTetris>().stopSpawning();
-
-        rowManager.ClearBox();
     }
 }
