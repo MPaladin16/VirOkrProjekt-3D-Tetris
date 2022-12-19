@@ -30,6 +30,13 @@ public class RowManager : MonoBehaviour
     private void Start()
     {
         markerList = new List<List<bool>>();
+        for (int i = 0; i < 10; i++) {
+            List<bool> list = new List<bool>();
+            for (int j = 0; j < 16; j++) {
+                list.Add(false);
+            }
+            markerList.Add(list);
+        }
     }
 
     public void UpdateStatus()
@@ -58,37 +65,26 @@ public class RowManager : MonoBehaviour
 
     public void ClearRows()
     {
-        ind1 = 0;
-        ind2 = 0;
-        ind3 = 0;
-        int rowFull = 0;
-        if (markerList[ind1][ind2])
-        {
-            rowFull++;
-        }
-        else
-        {
-            rowFull = 0;
-        }
-        ind2++;
-        if (rowFull == 16)
-        {
-            while (rowFull > 0)
-            {
-                ColliderScriptList[ind1 * 16 + ind3].SetEmpty();
-                ind3++;
-                rowFull--;
+        for (ind1 = 0; ind1 < 10; ind1++) {
+            Debug.Log("Row: " + ind1);
+            bool rowFull = true;
+            
+            for (ind2 = 0; ind2 < 16; ind2++) {
+                if (!markerList[ind1][ind2]) {
+                    rowFull = false;
+                    break;
+                }
             }
-            ind3 = 0;
-            //tu se dodaje bod na screen za unsiten cijeli red
-            onRowCleared?.Invoke();
-        }
 
-        if (ind2 == 16)
-        {
-            ind1++;
-            ind2 = 0;
-            rowFull = 0;
+            if (rowFull) {
+                Debug.Log("Full row: " + ind1);
+                for (int i = 0; i < 16; i++) {
+                    ColliderScriptList[ind1 * 16 + i].SetEmpty();
+                }
+
+                // tu se dodaje bod na screen za unisten cijeli red
+                onRowCleared?.Invoke();
+            }
         }
     }
 
