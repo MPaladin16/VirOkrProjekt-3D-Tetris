@@ -167,7 +167,6 @@ public class GameManager : MonoBehaviour
 
     public void DroppedOrDespawned()
     {
-        Debug.Log(lives);
         lives--;
 
         if (lives <= 0)
