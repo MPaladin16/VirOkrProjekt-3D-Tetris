@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
         if (level < 5 && score >= nextLvl)
         {
             level++;
+            lives++;
 
             if (level < 5)
             {
