@@ -47,7 +47,7 @@ public class RowManager : MonoBehaviour
                 markerList[ind1][ind2] = false;
             }
             ind2++;
-            if (ind2 == 15)
+            if (ind2 == 16)
             {
                 ind1++;
                 ind2 = 0;
