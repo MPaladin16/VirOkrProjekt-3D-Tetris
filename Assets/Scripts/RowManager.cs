@@ -94,7 +94,20 @@ public class RowManager : MonoBehaviour
 
     private void ClearBox()
     {
-        //TODO ocisti kutiju s oblicima
+        ind1 = 0;
+        ind2 = 0;
+        foreach (ColliderScript marker in ColliderScriptList)
+        {
+            markerList[ind1][ind2] = false;
+            ColliderScriptList[ind1 * 16 + ind2].SetEmpty();
+            ind2++;
+            if (ind2 == 16)
+            {
+                ind1++;
+                ind2 = 0;
+            }
+           
+        }
     }
 
     public static void PlaceCubeInNetwork(ColliderScript colliderCube, CubeScript tetrisCube, GameObject tetrisShape) {
