@@ -96,6 +96,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        timeText.alignment = TextAlignmentOptions.Left;
+        livesText.enabled = true;
         currentTime = 0f;
         score = 0;
 
@@ -162,8 +164,6 @@ public class GameManager : MonoBehaviour
                 tetris.GetComponent<TetrisPieceScript>().Explode();
             }
         }
-
-        lives = LIVES;
     }
 
     public void DroppedOrDespawned()
@@ -174,12 +174,16 @@ public class GameManager : MonoBehaviour
         {
             StopGame();
             timeText.text = "<b>GAME OVER<b>";
+            timeText.alignment = TextAlignmentOptions.Center;
             scoreText.text = "Final score: " + score;
 
             float min = Mathf.FloorToInt(currentTime / 60);
             float sec = Mathf.FloorToInt(currentTime % 60);
 
             lvlText.text = "Time: " + string.Format("{0:00}:{1:00}", min, sec);
+
+            livesText.enabled = false;
+            lives = LIVES;
         }
 
     }
