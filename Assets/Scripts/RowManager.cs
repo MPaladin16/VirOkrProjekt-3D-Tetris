@@ -11,9 +11,6 @@ public class RowManager : MonoBehaviour
     public static Action onRowCleared;
 
     private List<List<bool>> markerList;
-    private int ind1 = 0;
-    private int ind2 = 0;
-    private int ind3 = 0;
 
     public bool CheckMark(int rowIndex, int i, int j) {
         return markerList[rowIndex][i * 4 + j];
@@ -45,8 +42,8 @@ public class RowManager : MonoBehaviour
 
     public void UpdateStatus()
     {
-        ind1 = 0;
-        ind2 = 0;
+        int ind1 = 0;
+        int ind2 = 0;
         foreach (ColliderScript marker in ColliderScriptList)
         {
             if (marker.GetFull())
@@ -69,10 +66,10 @@ public class RowManager : MonoBehaviour
 
     public void ClearRows()
     {
-        for (ind1 = 9; ind1 >= 0; ind1--) {
+        for (int ind1 = 9; ind1 >= 0; ind1--) {
             bool rowFull = true;
             
-            for (ind2 = 0; ind2 < 16; ind2++) {
+            for (int ind2 = 0; ind2 < 16; ind2++) {
                 if (!markerList[ind1][ind2]) {
                     rowFull = false;
                     break;
@@ -117,8 +114,8 @@ public class RowManager : MonoBehaviour
 
     public void ClearBox()
     {
-        ind1 = 0;
-        ind2 = 0;
+        int ind1 = 0;
+        int ind2 = 0;
         foreach (ColliderScript marker in ColliderScriptList)
         {
             markerList[ind1][ind2] = false;
