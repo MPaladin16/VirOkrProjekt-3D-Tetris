@@ -28,10 +28,10 @@ public class GenerateTetris : MonoBehaviour
     }
 
     void SpawnTertris()
-    { 
-        int index = UnityEngine.Random.Range(0,tetrisPieces.Length);
+    {
+        int index = UnityEngine.Random.Range(0, tetrisPieces.Length);
 
-        if(lastSpawned.index == index && lastSpawned.reps >= 2)
+        if (lastSpawned.index == index && lastSpawned.reps >= 2)
         {
             do
             {
@@ -42,7 +42,7 @@ public class GenerateTetris : MonoBehaviour
             lastSpawned.reps = 1;
         }
 
-        else if(lastSpawned.index == index)
+        else if (lastSpawned.index == index)
         {
             lastSpawned.reps++;
         }
@@ -53,7 +53,8 @@ public class GenerateTetris : MonoBehaviour
             lastSpawned.reps = 1;
         }
 
-        Instantiate(tetrisPieces[index], this.gameObject.transform.position, this.gameObject.transform.rotation);
+        GameObject tetrisPiece = Instantiate(tetrisPieces[index], this.gameObject.transform.position, this.gameObject.transform.rotation);
+        StartCoroutine(despawnPiece(tetrisPiece));
     }
 
     private void DestroyRedundantObjects()
@@ -70,6 +71,19 @@ public class GenerateTetris : MonoBehaviour
     public void stopSpawning()
     {
         CancelInvoke("SpawnTertris");
+    }
+
+    IEnumerator despawnPiece(GameObject tetrisPiece)
+    {
+        yield return new WaitForSeconds(10);
+
+        if (tetrisPiece != null)
+        {
+            GameObject gameManager = GameObject.Find("GameManager");
+            gameManager.GetComponent<GameManager>().DroppedOrDespawned();
+
+            tetrisPiece.GetComponent<TetrisPieceScript>().Explode();
+        }
     }
 
 }

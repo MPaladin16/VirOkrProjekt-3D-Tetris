@@ -7,11 +7,14 @@ using UnityEngine.InputSystem.Controls;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Score needed for each level")]
+    [Header("Game settings")]
     public int lvl_2 = 300;
     public int lvl_3 = 800;
     public int lvl_4 = 2000;
     public int lvl_5 = 3000;
+
+    [Tooltip("Amount of pieces that can despawn or be dropped")]
+    public int lives;
 
     [Header("Spawner settings")]
     [Tooltip("Spawn tetris piece every x seconds")]
@@ -20,12 +23,16 @@ public class GameManager : MonoBehaviour
     [Tooltip("Start spawning pieces after startOffset seconds")]
     [SerializeField] float startOffset;
 
+    [Tooltip("Reduce time using this variable")]
+    [SerializeField] float reduceTime;
+
     public static Action<bool> onGameStarted;
     public static Action<bool> onGameStopped;
     public static Action onGameStoppedClearBox;
 
     public GameObject[] spawners;
 
+    [Header("Scoreboard")]
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI lvlText;
@@ -114,7 +121,7 @@ public class GameManager : MonoBehaviour
         {
             level++;
 
-            if(level < 5)
+            if (level < 5)
             {
                 nextLvl = levelTresholds[level - 1];
             }
@@ -124,8 +131,8 @@ public class GameManager : MonoBehaviour
             spawners[1].GetComponent<GenerateTetris>().stopSpawning();
 
             //reduce time gap by half -- ovo bumo prilagodili
-            seconds /= 1.3f;
-            startOffset /= 1.3f;
+            seconds /= reduceTime;
+            startOffset /= reduceTime;
 
             //start the spawners again (wait for the previous piece to fall)
             spawners[0].GetComponent<GenerateTetris>().startSpawning(startOffset, seconds);
@@ -137,9 +144,26 @@ public class GameManager : MonoBehaviour
     {
         start = false;
         onGameStopped?.Invoke(start);
-        onGameStoppedClearBox?.Invoke();
 
         spawners[0].GetComponent<GenerateTetris>().stopSpawning();
         spawners[1].GetComponent<GenerateTetris>().stopSpawning();
+    }
+
+    public void DroppedOrDespawned()
+    {
+        lives--;
+
+        if (lives <= 0)
+        {
+            StopGame();
+            timeText.text = "<b>GAME OVER<b>";
+            scoreText.text = "Final score: " + score;
+
+            float min = Mathf.FloorToInt(currentTime / 60);
+            float sec = Mathf.FloorToInt(currentTime % 60);
+
+            lvlText.text = "Time: " + string.Format("{0:00}:{1:00}", min, sec);
+        }
+
     }
 }

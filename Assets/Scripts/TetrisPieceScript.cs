@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TetrisPieceScript : MonoBehaviour
 {
-    //explosion details
+    [Header("Explosion details")]
     public int cubesPerAxis = 3;
     public float radius = 0.5f;
     public float force = 15f;
@@ -23,27 +23,33 @@ public class TetrisPieceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         //sudar s podom -> eksplozija
         if (collision.gameObject.layer == 3)
         {
             force *= collision.relativeVelocity.y;
             Invoke("Explode", 0);
+
+            GameObject gameManager = GameObject.Find("GameManager");
+            gameManager.GetComponent<GameManager>().DroppedOrDespawned();
         }
     }
 
-    private void Explode()
+    public void Explode()
     {
-        foreach(Transform childCube in this.transform)
+        foreach (Transform childCube in this.transform)
         {
-            for(int x = 0; x < cubesPerAxis; x++) {
-                for (int y = 0; y < cubesPerAxis; y++) {
-                    for (int z = 0; z < cubesPerAxis; z++) {
+            for (int x = 0; x < cubesPerAxis; x++)
+            {
+                for (int y = 0; y < cubesPerAxis; y++)
+                {
+                    for (int z = 0; z < cubesPerAxis; z++)
+                    {
                         try
                         {
                             CreateMiniCube(childCube, new Vector3(x, y, z));
