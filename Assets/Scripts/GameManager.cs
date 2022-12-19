@@ -36,8 +36,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI lvlText;
+    public TextMeshProUGUI livesText;
 
     private const int AMOUNT = 100;
+    private const int LIVES = 3;
 
     private float currentTime;
     private bool start;
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour
 
             scoreText.text = "Score: " + score;
             lvlText.text = "Level: " + level;
+            livesText.text = "Lives: " + lives;
 
         }
 
@@ -158,10 +161,13 @@ public class GameManager : MonoBehaviour
                 tetris.GetComponent<TetrisPieceScript>().Explode();
             }
         }
+
+        lives = LIVES;
     }
 
     public void DroppedOrDespawned()
     {
+        Debug.Log(lives);
         lives--;
 
         if (lives <= 0)
