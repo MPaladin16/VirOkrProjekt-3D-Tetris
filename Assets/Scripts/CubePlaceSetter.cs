@@ -7,11 +7,6 @@ public class CubePlaceSetter : MonoBehaviour
 {
     List<ColliderScript> activeColliders = new List<ColliderScript>();
 
-    [SerializeField] public bool[] shapeRow1 = new bool[2];
-    [SerializeField] public bool[] shapeRow2 = new bool[2];
-    [SerializeField] public bool[] shapeRow3 = new bool[2];
-    [SerializeField] public bool[] shapeRow4 = new bool[2];
-
     public static Action onShapeAdded;
 
     private int boolCount;
@@ -20,28 +15,6 @@ public class CubePlaceSetter : MonoBehaviour
     private RowManager rowManager;
 
     void Start() {
-        int boolCount = 0;
-        foreach (bool b in shapeRow1) {
-            if (b) {
-                boolCount++;
-            }
-        }
-        foreach (bool b in shapeRow2) {
-            if (b) {
-                boolCount++;
-            }
-        }
-        foreach (bool b in shapeRow3) {
-            if (b) {
-                boolCount++;
-            }
-        }
-        foreach (bool b in shapeRow4) {
-            if (b) {
-                boolCount++;
-            }
-        }
-
         rowManager = GameObject.Find("RowManager").GetComponent<RowManager>();
     }
 
@@ -60,41 +33,6 @@ public class CubePlaceSetter : MonoBehaviour
 
     private List<ColliderScript> correctShape() {
         List<ColliderScript> shape = new List<ColliderScript>();
-
-        // this is commented if the current idea won't work very well
-        // List<string> shapeBool = new List<string>();
-        // // 2 = number of columns for shape
-        // for (int i = 0; i < 2; i++) {
-        //     if (shapeRow1[i]) {
-        //         shapeBool.Add("0" + i);
-        //     }
-        //     if (shapeRow2[i]) {
-        //         shapeBool.Add("1" + i);
-        //     }
-        //     if (shapeRow3[i]) {
-        //         shapeBool.Add("2" + i);
-        //     }
-        //     if (shapeRow4[i]) {
-        //         shapeBool.Add("3" + i);
-        //     }
-        // }
-
-        // // TODO: Create list with 6 functions for each direction
-
-        // List<ColliderScript> activeCollidersCopy = new List<ColliderScript>(activeColliders);
-        // foreach (ColliderScript middleCollider in activeCollidersCopy) {
-        //     shape = new List<ColliderScript>();
-        //     List<string> shapeBoolCopy = new List<string>(shapeBool);
-
-        //     foreach (ColliderScript otherCollider in activeCollidersCopy) {
-        //         if (middleCollider == otherCollider) {
-        //             continue;
-        //         }
-
-        //         // TODO: check all bools to see if they are in the correct position
-        //         if (middleCollider.GetI)
-        //     }
-        // }
 
         if (activeColliders.Count == 4) {
             List<ColliderScript> activeCollidersCopy = new List<ColliderScript>(activeColliders);
@@ -128,7 +66,6 @@ public class CubePlaceSetter : MonoBehaviour
                             }
 
                             touching = true;
-                            // TODO: Could add collider2 as well
                             shape.Add(collider1);
                     }
                 }
