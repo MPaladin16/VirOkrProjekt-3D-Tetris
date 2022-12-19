@@ -44,7 +44,9 @@ public class ColliderScript : MonoBehaviour
     public void SetEmpty()
     {
         full = false;
-        Destroy(_parentCube);
+        if (_parentCube != null) { 
+            Destroy(_parentCube);
+        }
     }
 
     public bool GetFull()
