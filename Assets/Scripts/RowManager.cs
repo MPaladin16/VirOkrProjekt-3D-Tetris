@@ -93,7 +93,6 @@ public class RowManager : MonoBehaviour
     private void LowerRows(int clearedRow) {
         for (int i = clearedRow + 1; i < 10; i++) {
             for (int j = 0; j < 16; j++) {
-                Debug.Log("Coordinates: i: " + i + ", j: " + j + ", Fullness: " + markerList[i][j]);
                 if (markerList[i][j]) {
                     markerList[i - 1][j] = true;
                     ColliderScript fallingColliderCube = ColliderScriptList[i * 16 + j];
