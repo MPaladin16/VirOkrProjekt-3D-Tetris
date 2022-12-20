@@ -79,6 +79,7 @@ public class RowManager : MonoBehaviour
             if (rowFull) {
                 for (int i = 0; i < 16; i++) {
                     ColliderScriptList[ind1 * 16 + i].SetEmpty();
+                    markerList[ind1][i] = false;
                 }
 
                 // tu se dodaje bod na screen za unisten cijeli red
