@@ -164,6 +164,8 @@ public class GameManager : MonoBehaviour
                 tetris.GetComponent<TetrisPieceScript>().Explode();
             }
         }
+        livesText.enabled = false;
+        lives = LIVES;
     }
 
     public void DroppedOrDespawned()
@@ -181,10 +183,6 @@ public class GameManager : MonoBehaviour
             float sec = Mathf.FloorToInt(currentTime % 60);
 
             lvlText.text = "Time: " + string.Format("{0:00}:{1:00}", min, sec);
-
-            livesText.enabled = false;
-            lives = LIVES;
         }
-
     }
 }
