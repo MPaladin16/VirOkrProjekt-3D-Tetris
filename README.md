@@ -1,15 +1,16 @@
-# VirOkrProjekt-3D-Tetris
+# Četris
  
-## Descritpion:
-3D Tetris VR game created as a part of Virtual Environments class at Faculty of Electrical Engineering and Computing, Zagreb.
+## Description:
+VR Tetris-like game developed in Unity.
+Made for the Virtual Environments course at the Faculty of Electrical Engineering and Computing, University of Zagreb.
 
 ## Developers:
- - Mateo Paladin
- - Emilia Haramina
- - Fran Posarić
  - Filip Gustetić
- - 
-## Teacher: 
+ - Emilia Haramina
+ - Mateo Paladin
+ - Fran Posarić
+
+## Mentor: 
 - Mirko Sužnjević
 
 ## Video:
