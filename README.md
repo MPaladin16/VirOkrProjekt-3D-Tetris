@@ -15,3 +15,4 @@ Made for the Virtual Environments course at the Faculty of Electrical Engineerin
 
 ## Video:
 https://github.com/MPaladin16/VirOkrProjekt-3D-Tetris/tree/main/Video
+https://youtu.be/8Zid31Ibejo
